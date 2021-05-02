@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/form.css" />
+    <title>Sign-in form</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="header" >Sign in to mySite</h1>
+      <form class="form-container">
+        <label class="inputContainer">
+          Email
+          <input
+            class="input"
+            name="email"
+            placeholder="example@mail.com"
+            type="email"
+            autofocus
+            required
+          />
+        </label>
+        <label class="inputContainer">
+          Password
+          <input
+            class="input"
+            name="password"
+            placeholder="password"
+            type="password"
+            required
+          />
+        </label>
+        <button class="submitBtn" type="submit">Sign in</button>
+      </form>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>
