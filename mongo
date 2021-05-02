@@ -1,0 +1,51 @@
+db.createCollection('posts', {
+  validator:{
+    $jsonSchema:{
+      bsonType: "object",
+      properties: {
+        title: { "bsonType": "string" },
+        content: { "bsonType": "string" },
+        author: { "bsonType": "string" },
+        like: { "bsonType": "int" },
+        dislike: { "bsonType": "int" }
+      }
+    }
+  }
+});
+
+db.posts.insertMany([
+  {title: 'title1', content:'test content1', author:'author1', like:10, dislike:20},
+  {title: 'title2', content:'test content2', author:'author2', like:100, dislike:20},
+  {title: 'title3', content:'test content3', author:'author3', like:112, dislike:20},
+  {title: 'title4', content:'test content4', author:'author4', like:98, dislike:20},
+  {title: 'title5', content:'test content5', author:'author5', like:1200, dislike:20},
+  {title: 'title6', content:'test content6', author:'author1', like:356, dislike:20},
+  {title: 'title7', content:'test content7', author:'author2', like:76, dislike:20},
+  {title: 'title8', content:'test content8', author:'author3', like:83, dislike:20},
+  {title: 'title9', content:'test content9', author:'author4', like:398, dislike:20},
+  {title: 'title10', content:'test content10', author:'author5', like:123, dislike:20},
+  {title: 'title11', content:'test content11', author:'author1', like:33, dislike:20},
+  {title: 'title12', content:'test content12', author:'author2', like:1, dislike:20},
+  {title: 'title13', content:'test content13', author:'author3', like:444, dislike:20},
+  {title: 'title14', content:'test content14', author:'author4', like:333, dislike:20},
+]);
+
+
+//1. Выведите 5 записей из коллекции posts пропустив первые 5
+db.posts.find().skip(5).limit(5)
+
+//2. Выведите все записи у которых like больше 100
+db.posts.find({like:{$gt:100}})
+
+//3. Добавьте новую запись в коллекцию posts
+db.posts.insertOne(  {title: 'title15', content:'test content15', author:'author5', like:666, dislike:100})
+
+//4. Выведите список авторов и их общее количество like
+db.posts.aggregate([
+  {
+    $group:{
+      _id:'$author',
+      likeCount: {$sum: '$like'}
+    }
+  }
+])
