@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+}
+
+.btn {
+  padding: 10px 15px;
+  margin: 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  font-weight: 600;
+  background-color: whitesmoke;
+}
+.btn:active {
+  color: whitesmoke;
+  box-shadow: 0px -1px 8px 6px rgba(34, 60, 80, 0.2) inset;
+}
+
+.btn-active {
+  color: limegreen;
+  border-color: limegreen;
+}
+.btn-active:hover {
+  background-color: limegreen;
+  color: whitesmoke;
+  box-shadow: 0px 0px 5px 3px rgba(50, 205, 50, 0.2);
+}
+.btn-active:active {
+  background-color: green;
+  border-color: green;
+}
+
+.btn-disabled {
+  color: limegreen;
+  border-color: limegreen;
+  opacity: 60%;
+}
+
+.btn-danger {
+  color: red;
+  border-color: red;
+}
+.btn-danger:hover {
+  background-color: red;
+  color: whitesmoke;
+  box-shadow: 0px 0px 5px 3px rgba(255, 0, 0, 0.2);
+}
+.btn-danger:active {
+  background-color: rgb(165, 8, 8);
+  border-color: rgb(165, 8, 8);
+}
+
+/* ========================1=========================== */
+/* 1. Контейнеру этих пяти элементов задаем  display: flex
+Чтоб элементы занимали 20% элементам ставим   flex-basis: 20%, max-width: 20%.
+Для того чтоб позиционировать их по центру контейнера justify-content: center, align-items: center*/
+/* 2. Элементам задаем   display: inline-block - елементы будут находиться в строку,
+можно задать white-space: nowrap, чтоб  располагались точно в одну строку.  
+Чтоб занимали по 20%: width: 20%
+Для того чтоб позиционировать по центру, относительно горизонтальной оси:  vertical-align: middle  */
+/* 3. Для того чтоб элементы занимали по 20%: обертке задаем display: table и необходимую ширину (width: 100vw), 
+контейнеру элементов display: table-row, а элементам  display: table-cell,  width: 20%;
+Для вертикального выравнивания элементов в ячейке vertical-align: middle*/
+
+/* ========================2=========================== */
+/* 1. Обернуть весь блок модального окна в дисплей флекс, justify-content:center, align-items:center */
+/* 2. Враперу модального окна ставим position:fixed, причем обертка над модальным окном должна быть на всю ширину и высоту браузера.
+Потом модальному окну position:absolute, и теперь оно позиционируется относительно врапера
+Сдвигаем модальное окно: top:50%, left:50%, окно оказывается в правой нижней части координатной сетки, с углом в начале координат
+Используя свойство transform, применяем функцию translate(-50%, -50%), чем сдвигаем модалку наполовину влево вверх и она становится по центру */
